@@ -26,7 +26,7 @@ The simulation study examines:
 Let $\widehat{\boldsymbol\beta}^{\,R}$ denote the ridge Poisson estimate used as
 the pivot. For fixed $(\alpha,d,\lambda_1,\lambda_2)$, the proposed estimator is
 
-$$
+```math
 \widehat{\boldsymbol\beta}
 =
 \arg\min_{\boldsymbol\beta}
@@ -45,7 +45,7 @@ $$
 \boldsymbol\beta-d\widehat{\boldsymbol\beta}^{\,R}
 \right\|_2^2
 \right\}.
-$$
+```
 
 The parameters have the following interpretations:
 
@@ -63,7 +63,7 @@ The numerical constant is $\varepsilon=10^{-5}$.
 
 The complete grids are
 
-$$
+```math
 \begin{aligned}
 \mathcal A
 &=\{1.1,\,1.25,\,1.4,\,1.6,\,1.8,\,2.0\},\\
@@ -74,7 +74,7 @@ $$
 \Lambda_{\mathrm{ridge}}
 &=\left\{10^{-2+3k/5}:k=0,\ldots,5\right\}.
 \end{aligned}
-$$
+```
 
 The implementation can use a coarse screen formed by taking every second entry
 from the $\alpha$, $d$, $\lambda_1$, and $\lambda_2$ grids.
@@ -96,9 +96,9 @@ $\rho_0=0.05$.
 
 Predictor rows are generated from
 
-$$
+```math
 \mathbf{x}_i\sim\mathcal N_p(\mathbf 0,\boldsymbol\Sigma),
-$$
+```
 
 where $\boldsymbol\Sigma$ is determined by the scenario-specific block
 correlations. Small covariance eigenvalues are truncated to maintain numerical
@@ -107,7 +107,7 @@ positive definiteness.
 If $g(i)$ identifies the original block containing predictor $i$, the covariance
 entries are
 
-$$
+```math
 \Sigma_{ij}
 =
 \begin{cases}
@@ -121,7 +121,7 @@ $$
 & \text{otherwise},
 \end{cases}
 \qquad \rho_0=0.05.
-$$
+```
 
 Training and test samples are generated independently. Both samples are
 standardized using the training-sample means and standard deviations, and the
@@ -129,9 +129,9 @@ same random column permutation is applied to both.
 
 For signal proportion $\kappa$, the number of active coefficients is
 
-$$
+```math
 q=\max\{\operatorname{round}(\kappa p),1\}.
-$$
+```
 
 Active coordinates are sampled without replacement. Each active coefficient has
 magnitude $0.6$ and a randomly selected sign; all remaining coefficients are
@@ -140,7 +140,7 @@ generated for every Monte Carlo replication.
 
 The response model is
 
-$$
+```math
 Y_i\mid\mathbf{x}_i
 \sim\operatorname{Poisson}(\mu_i),
 \qquad
@@ -151,7 +151,7 @@ Y_i\mid\mathbf{x}_i
 \mathbf{x}_i^\top\boldsymbol\beta^\star,-3.5,3.5
 \right)
 \right\}.
-$$
+```
 
 The implemented data generator does not add an intercept.
 
@@ -167,14 +167,14 @@ estimator fitted for that fold.
 
 For validation observation $i$, the Poisson deviance contribution is
 
-$$
+```math
 D_i
 =
 2\left[
 y_i\log\left(\frac{y_i}{\widehat\mu_i}\right)
 +\widehat\mu_i-y_i
 \right],
-$$
+```
 
 where the logarithmic term is defined as zero when $y_i=0$. The validation
 score is the deviance per observation. Scores are averaged first across folds
@@ -186,7 +186,7 @@ Writing $D_{rf}$ and $n_{rf}$ for the validation deviance and validation size in
 fold $f$ of repeat $r$, respectively, the repeat-level and overall selection
 scores are
 
-$$
+```math
 \overline D_r
 =
 \frac{1}{K}
@@ -198,7 +198,7 @@ $$
 \frac{1}{R}
 \sum_{r=1}^{R}
 \overline D_r.
-$$
+```
 
 ## Reference estimators
 
@@ -216,7 +216,7 @@ data.
 
 ### Poisson deviance per observation
 
-$$
+```math
 \frac{D_{\mathrm{test}}}{n_{\mathrm{test}}}
 =
 \frac{2}{n_{\mathrm{test}}}
@@ -225,45 +225,45 @@ $$
 y_i\log\left(\frac{y_i}{\widehat\mu_i}\right)
 +\widehat\mu_i-y_i
 \right].
-$$
+```
 
 ### Coefficient mean squared error
 
-$$
+```math
 \operatorname{MSE}_{\beta}
 =
 \frac{1}{p}
 \sum_{j=1}^{p}
 \left(\widehat\beta_j-\beta_j^\star\right)^2.
-$$
+```
 
 ### Prediction errors
 
-$$
+```math
 \operatorname{MAE}
 =
 \frac{1}{n_{\mathrm{test}}}
 \sum_i|y_i-\widehat\mu_i|,
-$$
+```
 
-$$
+```math
 \operatorname{RMSE}
 =
 \left[
 \frac{1}{n_{\mathrm{test}}}
 \sum_i(y_i-\widehat\mu_i)^2
 \right]^{1/2}.
-$$
+```
 
 ### Within-group coefficient dispersion
 
-$$
+```math
 G_{\mathrm{within}}
 =
 \frac{1}{|\mathcal P_{\mathrm{within}}|}
 \sum_{(i,j)\in\mathcal P_{\mathrm{within}}}
 |\widehat\beta_i-\widehat\beta_j|,
-$$
+```
 
 where $\mathcal P_{\mathrm{within}}$ contains predictor pairs from the same
 signal group whose absolute training-sample correlation exceeds $0.8$.

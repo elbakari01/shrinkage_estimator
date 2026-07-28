@@ -8,23 +8,23 @@ distribution with scenario-specific within-block and between-signal correlations
 Training and test samples are generated independently. Both are standardized using
 the training-sample means and standard deviations.
 
-For signal proportion \(\kappa\), the number of active coefficients is
+For signal proportion $\kappa$, the number of active coefficients is
 
-\[
+```math
 q=\max\{\operatorname{round}(\kappa p),1\}.
-\]
+```
 
 Active coordinates are sampled without replacement and assigned random signs with
-magnitude \(0.6\). Responses follow
+magnitude $0.6$. Responses follow
 
-\[
+```math
 Y_i\mid X_i\sim\operatorname{Poisson}(\mu_i),\qquad
 \mu_i=\exp\{\operatorname{clip}(X_i^\top\beta^\star,-3.5,3.5)\}.
-\]
+```
 
 ## Hyperparameter grids
 
-\[
+```math
 \begin{aligned}
 \mathcal A
 &=\{1.1,1.25,1.4,1.6,1.8,2.0\},\\
@@ -35,8 +35,7 @@ Y_i\mid X_i\sim\operatorname{Poisson}(\mu_i),\qquad
 \Lambda_{\mathrm{ridge}}
 &=\left\{10^{-2+3k/5}:k=0,\ldots,5\right\}.
 \end{aligned}
-\]
-
+```
 
 ## Parameter selection
 
