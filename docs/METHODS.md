@@ -11,15 +11,15 @@ the training-sample means and standard deviations.
 For signal proportion $\kappa$, the number of active coefficients is
 
 ```math
-q=\max\{\operatorname{round}(\kappa p),1\}.
+q=\max\{\mathrm{round}(\kappa p),1\}.
 ```
 
 Active coordinates are sampled without replacement and assigned random signs with
 magnitude $0.6$. Responses follow
 
 ```math
-Y_i\mid X_i\sim\operatorname{Poisson}(\mu_i),\qquad
-\mu_i=\exp\{\operatorname{clip}(X_i^\top\beta^\star,-3.5,3.5)\}.
+Y_i\mid X_i\sim\mathrm{Poisson}(\mu_i),\qquad
+\mu_i=\exp\{\mathrm{clip}(X_i^\top\beta^\star,-3.5,3.5)\}.
 ```
 
 ## Hyperparameter grids

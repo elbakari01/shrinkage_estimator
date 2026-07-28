@@ -12,9 +12,9 @@ The simulation study examines:
 
 - predictive performance measured by Poisson deviance, $D$;
 - coefficient recovery measured by
-  $\operatorname{MSE}_{\boldsymbol\beta}$;
-- prediction error measured by $\operatorname{MAE}$ and
-  $\operatorname{RMSE}$;
+  $\mathrm{MSE}_{\boldsymbol\beta}$;
+- prediction error measured by $\mathrm{MAE}$ and
+  $\mathrm{RMSE}$;
 - similarity of estimated coefficients within strongly correlated groups;
 - sensitivity to the amount of trust placed in the pivot;
 - sensitivity to perturbations of the pivot;
@@ -130,7 +130,7 @@ same random column permutation is applied to both.
 For signal proportion $\kappa$, the number of active coefficients is
 
 ```math
-q=\max\{\operatorname{round}(\kappa p),1\}.
+q=\max\{\mathrm{round}(\kappa p),1\}.
 ```
 
 Active coordinates are sampled without replacement. Each active coefficient has
@@ -142,11 +142,11 @@ The response model is
 
 ```math
 Y_i\mid\mathbf{x}_i
-\sim\operatorname{Poisson}(\mu_i),
+\sim\mathrm{Poisson}(\mu_i),
 \qquad
 \mu_i=
 \exp\!\left\{
-\operatorname{clip}
+\mathrm{clip}
 \left(
 \mathbf{x}_i^\top\boldsymbol\beta^\star,-3.5,3.5
 \right)
@@ -230,7 +230,7 @@ y_i\log\left(\frac{y_i}{\widehat\mu_i}\right)
 ### Coefficient mean squared error
 
 ```math
-\operatorname{MSE}_{\beta}
+\mathrm{MSE}_{\beta}
 =
 \frac{1}{p}
 \sum_{j=1}^{p}
@@ -240,14 +240,14 @@ y_i\log\left(\frac{y_i}{\widehat\mu_i}\right)
 ### Prediction errors
 
 ```math
-\operatorname{MAE}
+\mathrm{MAE}
 =
 \frac{1}{n_{\mathrm{test}}}
 \sum_i|y_i-\widehat\mu_i|,
 ```
 
 ```math
-\operatorname{RMSE}
+\mathrm{RMSE}
 =
 \left[
 \frac{1}{n_{\mathrm{test}}}
