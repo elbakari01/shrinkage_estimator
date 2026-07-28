@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shrinkage-estimator"
+version = "1.0.0"
+description = "Simulation study for an adaptive pivot-based shrinkage estimator in Poisson regression"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Ibrahim Bakari"}
+]
+keywords = [
+  "Poisson regression",
+  "shrinkage estimation",
+  "regularization",
+  "cross-validation",
+  "Monte Carlo simulation",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+  "numpy>=1.23",
+  "pandas>=1.5",
+  "matplotlib>=3.6",
+  "scipy>=1.9",
+  "joblib>=1.2",
+  "numba>=0.57",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7",
+  "ruff>=0.4",
+]
+
+[project.scripts]
+shrinkage-sim = "shrinkage_estimator.cli:main"
+
+[project.urls]
+Repository = "https://github.com/elbakari01/shrinkage_estimator"
+Issues = "https://github.com/elbakari01/shrinkage_estimator/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
